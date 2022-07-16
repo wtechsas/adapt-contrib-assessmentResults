@@ -1,0 +1,17 @@
+{
+  "name": "adapt-contrib-assessmentResults",
+  "version": "10.0.0",
+  "framework": ">=5.19.1",
+  "homepage": "https://github.com/wtechsas/adapt-contrib-assessmentResults",
+  "bugs": "https://github.com/wtechsas/adapt-contrib-assessmentResults/issues",
+  "component" : "assessmentResults",
+  "targetAttribute": "_assessmentResults",
+  "displayName" : "Resultados de la evaluación",
+  "description": "Un componente utilizado para mostrar los resultados de una sola evaluación",
+  "main": "/js/adapt-contrib-assessmentResults.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPL-3.0"
+}

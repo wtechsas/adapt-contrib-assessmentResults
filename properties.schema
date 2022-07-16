@@ -1,0 +1,178 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "title": "Etiqueta Aria",
+      "default": "Resultados de la evaluación.",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    }
+  },
+  "properties": {
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "both",
+      "editorOnly": true
+    },
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "Text",
+      "title": "Texto de instrucciones",
+      "validators": [],
+      "help": "Este es el texto de instrucciones.",
+      "translatable": true
+    },
+    "_isVisibleBeforeCompletion": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "title": "Mostrar antes de completar la evaluación",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Controla si este componente estará visible u oculto antes de que se complete la evaluación."
+    },
+    "_setCompletionOn": {
+      "type": "string",
+      "required": false,
+      "default": "inview",
+      "title": "Establecer su finalización en:",
+      "enum": ["inview", "pass"],
+      "inputType": {
+        "type": "Select",
+        "options": [{"val": "inview", "label": "ver la evaluación asociada"},
+                    {"val": "pass", "label": "aprobar la evaluación asociada"}
+         ]
+      },
+      "validators": [],
+      "help": "Establézcalo en 'pass' para que el componente se marque como completado solo si el alumno aprobó la evaluación asociada."
+    },
+    "_resetType": {
+      "type": "string",
+      "required": false,
+      "default": "inherit",
+      "title": "Tipo de reinicio:",
+      "enum": ["inherit", "hard", "soft"],
+      "inputType": {
+        "type": "Select",
+        "options": [{"val": "inherit", "label": "heredada"},
+                    {"val": "hard", "label": "fuerte"},
+                    {"val": "soft", "label": "suave"}
+                     ]
+      },
+      "validators": [],
+      "help": "Establézcalo en 'heredada' para usar el mismo tipo de restablecimiento que la evaluación. Establézcalo en 'fuerte' para que se restablezca la finalización del componente cuando se restablezca la evaluación, configúrelo en 'suave' si no desea que se restablezca la finalización."
+    },
+    "_assessmentId": {
+      "type": "string",
+      "required": true,
+      "default": "",
+      "title": "Nombre de la evaluación",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Este es el nombre exclusivo de la evaluación cuyos resultados deben mostrarse. Si solo tiene una evaluación, puede dejar esto en blanco."
+    },
+    "_retry": {
+      "type": "object",
+      "required": true,
+      "title": "",
+      "properties": {
+        "button": {
+          "type": "string",
+          "required": false,
+          "default": "Reintentar evaluación",
+          "title": "Texto del botón Reintentar",
+          "inputType": "Text",
+          "validators": [],
+          "translatable": true,
+          "help": "Texto que aparece en el botón de reintento."
+        },
+        "feedback": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Texto de reintento",
+          "inputType": "TextArea",
+          "validators": [],
+          "help": "Este texto se muestra solo cuando quedan más intentos. Puede utilizar las siguientes variables: {{attemptsSpent}}, {{attempts}}, {{attemptsLeft}}, {{score}}, {{maxScore}}.",
+          "translatable": true
+        },
+        "_routeToAssessment": {
+          "type": "boolean",
+          "required": true,
+          "default": false,
+          "title": "Redirigir a la evaluación al reintentar",
+          "inputType": "Checkbox",
+          "validators": [],
+          "help": "Cuando está habilitado, esto llevará al usuario de regreso a la evaluación cuando se haga clic en el botón 'Reintentar evaluación'."
+        }
+      }
+    },
+    "_completionBody": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "title": "Texto de retroalimentación",
+      "inputType": "TextArea",
+      "validators": [],
+      "help": "Este texto sobrescribe el atributo del cuerpo estándar al finalizar la evaluación. Puede hacer uso de las siguientes variables: {{attemptsSpent}}, {{attempts}}, {{attemptsLeft}}, {{{score}}}, {{{maxScore}}}. {{{feedback}}}, También permite representar la retroalimentación asignada a la franja adecuada.",
+      "translatable": true
+    },
+    "_bands": {
+      "type": "array",
+      "required": true,
+      "title": "Criterios",
+      "items": {
+        "type": "object",
+        "required": true,
+        "properties": {
+          "_score": {
+            "type": "number",
+            "required": false,
+            "title": "Puntaje",
+            "inputType": "Number",
+            "validators": ["number"],
+            "help": "Introduzca un valor que represente la puntuación bruta o el porcentaje para el inicio del rango."
+          },
+          "feedback": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Contenido del criterio",
+            "inputType": "TextArea",
+            "validators": [],
+            "translatable": true,
+            "help": "Este texto se mostrará al alumno cuando la puntuación del alumno se encuentre dentro del rango de este criterio."
+          },
+          "_allowRetry": {
+            "type": "boolean",
+            "required": true,
+            "default": true,
+            "title": "Permitir reintento",
+            "inputType": "Checkbox",
+            "validators": [],
+            "help": "Determina si se le permitirá al alumno volver a intentar la evaluación. Si no se establece, el alumno no podrá volver a intentar la evaluación independientemente de los intentos restantes."
+          },
+          "_classes": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Incluir clases",
+            "inputType": "Text",
+            "validators": [],
+            "help": "Clases a aplicar al artículo contenedor. Permite un estilo personalizado basado en el criterio en la que se encuentra la puntuación del alumno."
+          }
+        }
+      }
+    }
+  }
+}
