@@ -54,7 +54,7 @@
          ]
       },
       "validators": [],
-      "help": "Establézcalo en 'pass' para que el componente se marque como completado solo si el alumno aprobó la evaluación asociada."
+      "help": "Establézcalo en 'pass' para que el componente se marque como completado solo si el estudiante aprobó la evaluación asociada."
     },
     "_resetType": {
       "type": "string",
@@ -151,7 +151,7 @@
             "inputType": "TextArea",
             "validators": [],
             "translatable": true,
-            "help": "Este texto se mostrará al alumno cuando la puntuación del alumno se encuentre dentro del rango de este criterio."
+            "help": "Este texto se mostrará al estudiante cuando la puntuación del estudiante se encuentre dentro del rango de este criterio."
           },
           "_allowRetry": {
             "type": "boolean",
@@ -160,7 +160,7 @@
             "title": "Permitir reintento",
             "inputType": "Checkbox",
             "validators": [],
-            "help": "Determina si se le permitirá al alumno volver a intentar la evaluación. Si no se establece, el alumno no podrá volver a intentar la evaluación independientemente de los intentos restantes."
+            "help": "Determina si se le permitirá al estudiante volver a intentar la evaluación. Si no se establece, el estudiante no podrá volver a intentar la evaluación independientemente de los intentos restantes."
           },
           "_classes": {
             "type": "string",
@@ -169,7 +169,7 @@
             "title": "Incluir clases",
             "inputType": "Text",
             "validators": [],
-            "help": "Clases a aplicar al artículo contenedor. Permite un estilo personalizado basado en el criterio en la que se encuentra la puntuación del alumno."
+            "help": "Clases a aplicar al artículo contenedor. Permite un estilo personalizado basado en el criterio en la que se encuentra la puntuación del estudiante."
           }
         }
       }
