@@ -49,12 +49,12 @@
       "enum": ["inview", "pass"],
       "inputType": {
         "type": "Select",
-        "options": [{"val": "inview", "label": "ver la evaluación asociada"},
-                    {"val": "pass", "label": "aprobar la evaluación asociada"}
+        "options": [{"val": "inview", "label": "Ver la evaluación asociada"},
+                    {"val": "pass", "label": "Aprobar la evaluación asociada"}
          ]
       },
       "validators": [],
-      "help": "Establézcalo en 'pass' para que el componente se marque como completado solo si el estudiante aprobó la evaluación asociada."
+      "help": "Establézcalo en 'Aprobar la evaluación asociada' para que el componente se marque como completado solo si el usuario aprobó la evaluación asociada."
     },
     "_resetType": {
       "type": "string",
@@ -64,13 +64,13 @@
       "enum": ["inherit", "hard", "soft"],
       "inputType": {
         "type": "Select",
-        "options": [{"val": "inherit", "label": "heredada"},
-                    {"val": "hard", "label": "fuerte"},
-                    {"val": "soft", "label": "suave"}
+        "options": [{"val": "inherit", "label": "Heredada"},
+                    {"val": "hard", "label": "Fuerte"},
+                    {"val": "soft", "label": "Suave"}
                      ]
       },
       "validators": [],
-      "help": "Establézcalo en 'heredada' para usar el mismo tipo de restablecimiento que la evaluación. Establézcalo en 'fuerte' para que se restablezca la finalización del componente cuando se restablezca la evaluación, configúrelo en 'suave' si no desea que se restablezca la finalización."
+      "help": "Establézcalo en 'Heredada' para usar el mismo tipo de restablecimiento que la evaluación. Establézcalo en 'Fuerte' para que se restablezca la finalización del componente cuando se restablezca la evaluación, configúrelo en 'Suave' si no desea que se restablezca la finalización."
     },
     "_assessmentId": {
       "type": "string",
@@ -131,6 +131,7 @@
       "type": "array",
       "required": true,
       "title": "Criterios",
+      "help":"Corresponde a los criterios de evalución aplicados al estudiante.",
       "items": {
         "type": "object",
         "required": true,
