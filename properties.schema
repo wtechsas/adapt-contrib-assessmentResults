@@ -44,7 +44,7 @@
     "_setCompletionOn": {
       "type": "string",
       "required": false,
-      "default": "inview",
+      "default": "pass",
       "title": "Establecer su finalización en:",
       "enum": ["inview", "pass"],
       "inputType": {
